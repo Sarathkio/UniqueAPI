@@ -1,0 +1,41 @@
+{% load static %}
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/login.css '%}">
+</head>
+<body style="background-image:url('{% static 'images/login.jpg' %}">
+<div class="login">
+<h3 align="center" style="color:red">{{ msg }}</h3>
+<form action="reg" method="post">
+  {% csrf_token %}
+  <h1 align="center"> Welcome to Register page</h1>
+    <h3 align="center" style="color:rend">{{ msg }}</h3>
+    <h3 align="center" style="color:green">{{ msg1 }}</h3>
+  <table align="center">
+    <tr>
+      <td>UserName:</td>
+      <td><input type="text" name="name"></td>
+    </tr>
+      <tr>
+          <td>Age:</td>
+          <td><input type="text" name="age"></td>
+    </tr>
+      <tr>
+          <td>Email:</td>
+          <td><input type="email" name="txtMail"></td>
+    </tr>
+      <tr>
+          <td align="center" colspan="2">
+              <input type="submit" name="btnRegister" value="Register">
+          </td>
+      </tr>
+  </table>
+    </form>
+</div>
+
+</body>
+</html>
