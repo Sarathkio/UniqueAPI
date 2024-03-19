@@ -12,5 +12,5 @@ urlpatterns = [
     # path('',views.read_fun,name='data'),
     path('/api/data/',views.read_fun,name='data'),
     path('/api/merge/', views.merge_data, name='merge_data'),
-
+    path('api/update/', views.update_post, name='update_post'),#changed the api update
 ]
