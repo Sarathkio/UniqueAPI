@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from api.models import Api_data
 from django.core.validators import validate_email
+from rest_framework.decorators import api_view
 
 
 
