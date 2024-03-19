@@ -8,3 +8,4 @@ class Api_data(models.Model):
     email = models.EmailField()
     class Meta:
         db_table="api_data"
+        db_table="api_update'
