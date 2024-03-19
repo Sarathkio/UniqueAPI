@@ -71,6 +71,29 @@ def merge_data(request):
 
             return JsonResponse({'message': 'Data objects successfully merged'}, status=200)
 
+#changed the updat age will come innthe request body         
+@api_view(['POST'])
+def update_post(request):
+    name = request.data.get('name')
+    email = request.data.get('email')
+    new_age = request.data.get('age')
+
+    if not name or not email or not new_age:
+        return Response({'error': 'Name, email, and new age are required'}, status=400)
+
+    try:
+        user = User.objects.get(name=name, email=email)
+    except User.DoesNotExist:
+        return Response({'error': 'User not found'}, status=404)
+
+    try:
+        user.age = int(new_age)
+        user.save()
+        return Response({'message': 'User age updated successfully'}, status=200)
+    except ValueError:
+        return Response({'error': 'Invalid age format'}, status=400)
+
+
         except json.JSONDecodeError:
             return JsonResponse({'message': 'Invalid JSON payload'}, status=400)
 
